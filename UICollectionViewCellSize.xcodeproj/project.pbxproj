@@ -18,8 +18,9 @@
 		862E2B361D6AAAF10009BD8A /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 862E2B341D6AAAF10009BD8A /* CollectionViewCell.m */; };
 		862E2B371D6AAAF10009BD8A /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 862E2B351D6AAAF10009BD8A /* CollectionViewCell.xib */; };
 		862E2B3A1D6AAC430009BD8A /* CellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 862E2B391D6AAC430009BD8A /* CellModel.m */; };
-		862E2B3C1D6AC9220009BD8A /* bolt_flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 862E2B3B1D6AC9220009BD8A /* bolt_flash.png */; };
 		862E2B3F1D6AFF660009BD8A /* UICollectionView+selfSizingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 862E2B3E1D6AFF660009BD8A /* UICollectionView+selfSizingCell.m */; };
+		865E0E711D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E0E701D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.m */; };
+		865E0E741D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 865E0E731D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +62,12 @@
 		862E2B351D6AAAF10009BD8A /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		862E2B381D6AAC430009BD8A /* CellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModel.h; sourceTree = "<group>"; };
 		862E2B391D6AAC430009BD8A /* CellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModel.m; sourceTree = "<group>"; };
-		862E2B3B1D6AC9220009BD8A /* bolt_flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_flash.png; sourceTree = "<group>"; };
 		862E2B3D1D6AFF660009BD8A /* UICollectionView+selfSizingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+selfSizingCell.h"; sourceTree = "<group>"; };
 		862E2B3E1D6AFF660009BD8A /* UICollectionView+selfSizingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+selfSizingCell.m"; sourceTree = "<group>"; };
+		865E0E6F1D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+KeyedHeightCache.h"; sourceTree = "<group>"; };
+		865E0E701D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+KeyedHeightCache.m"; sourceTree = "<group>"; };
+		865E0E721D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IndexPathHeightCache.h"; sourceTree = "<group>"; };
+		865E0E731D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IndexPathHeightCache.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +98,6 @@
 		862E2AF41D6AA88C0009BD8A = {
 			isa = PBXGroup;
 			children = (
-				862E2B3B1D6AC9220009BD8A /* bolt_flash.png */,
 				862E2AFF1D6AA88C0009BD8A /* UICollectionViewCellSize */,
 				862E2B191D6AA88D0009BD8A /* UICollectionViewCellSizeTests */,
 				862E2B241D6AA88D0009BD8A /* UICollectionViewCellSizeUITests */,
@@ -131,6 +134,10 @@
 				862E2B391D6AAC430009BD8A /* CellModel.m */,
 				862E2B3D1D6AFF660009BD8A /* UICollectionView+selfSizingCell.h */,
 				862E2B3E1D6AFF660009BD8A /* UICollectionView+selfSizingCell.m */,
+				865E0E6F1D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.h */,
+				865E0E701D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.m */,
+				865E0E721D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.h */,
+				865E0E731D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.m */,
 			);
 			path = UICollectionViewCellSize;
 			sourceTree = "<group>";
@@ -265,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				862E2B101D6AA88D0009BD8A /* LaunchScreen.storyboard in Resources */,
-				862E2B3C1D6AC9220009BD8A /* bolt_flash.png in Resources */,
 				862E2B0D1D6AA88D0009BD8A /* Assets.xcassets in Resources */,
 				862E2B371D6AAAF10009BD8A /* CollectionViewCell.xib in Resources */,
 				862E2B0B1D6AA88D0009BD8A /* Main.storyboard in Resources */,
@@ -293,9 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865E0E711D76B06B00E7A40C /* UICollectionView+KeyedHeightCache.m in Sources */,
 				862E2B3F1D6AFF660009BD8A /* UICollectionView+selfSizingCell.m in Sources */,
 				862E2B081D6AA88D0009BD8A /* ViewController.m in Sources */,
 				862E2B051D6AA88D0009BD8A /* AppDelegate.m in Sources */,
+				865E0E741D76C0AA00E7A40C /* UICollectionView+IndexPathHeightCache.m in Sources */,
 				862E2B361D6AAAF10009BD8A /* CollectionViewCell.m in Sources */,
 				862E2B3A1D6AAC430009BD8A /* CellModel.m in Sources */,
 				862E2B021D6AA88D0009BD8A /* main.m in Sources */,

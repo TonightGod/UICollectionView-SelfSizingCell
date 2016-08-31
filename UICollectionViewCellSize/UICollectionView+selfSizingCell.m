@@ -77,13 +77,17 @@
     
     UICollectionViewCell *templateLayoutCell = [self templateCellForReuseIdentifier:identifier forIndexPath:indexPath];
     
-    [templateLayoutCell prepareForReuse];
+    if([self.indexPathHeightCache existsHeightAtIndexPath:indexPath])
+    {
+        return [self.indexPathHeightCache heightForIndexPath:indexPath];
+    }
     
     if (configuration) {
         configuration(templateLayoutCell);
     }
-    
-    return [self systemFittingHeightForConfiguratedCell:templateLayoutCell];
+    CGFloat height=[self systemFittingHeightForConfiguratedCell:templateLayoutCell];
+    [self.indexPathHeightCache cacheHeight:height byIndexPath:indexPath];
+    return height;
 }
 
 
@@ -116,6 +120,12 @@
     
     return templateCell;
 }
+
+@end
+
+
+
+@implementation UICollectionView(selfSizeingHeaderFooterView)
 
 -(CGFloat)heigthForFooterWithIdentifier:(NSString*)identifier configuration:(void(^)(id footer))configuration
 {
@@ -207,4 +217,5 @@
     return templateReusableView;
     
 }
+
 @end

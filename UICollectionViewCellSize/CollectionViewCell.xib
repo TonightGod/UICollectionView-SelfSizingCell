@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -30,7 +31,7 @@
                         <rect key="frame" x="0.0" y="20" width="199" height="111"/>
                         <color key="backgroundColor" red="0.54690069900000005" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="111" id="d8h-1n-E9Z"/>
+                            <constraint firstAttribute="width" secondItem="iGM-8p-ykq" secondAttribute="height" multiplier="199:111" id="6Bc-dp-1Es"/>
                         </constraints>
                     </view>
                 </subviews>
