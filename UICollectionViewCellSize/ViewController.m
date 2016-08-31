@@ -86,11 +86,16 @@ return _dataArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.collectionview];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.dataArray removeObjectAtIndex:3];
-        [self.collectionview deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:3 inSection:0]]];
-//    [self.collectionview deleteSections:[NSIndexSet indexSetWithIndex:0]];
-});
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.dataArray removeObjectAtIndex:3];
+//        [self.collectionview deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:3 inSection:0]]];
+////    [self.collectionview deleteSections:[NSIndexSet indexSetWithIndex:0]];
+//});
+    self.collectionview.translatesAutoresizingMaskIntoConstraints=NO;
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.collectionview attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.collectionview attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.collectionview attribute:NSLayoutAttributeBottom multiplier:1 constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.collectionview attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
 }
 
 
@@ -107,6 +112,14 @@ return _dataArray;
     }];
 
     return CGSizeMake([UIScreen mainScreen].bounds.size.width, height);
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [UIView animateWithDuration:duration animations:^{
+        [self.collectionview reloadData];
+
+    }];
 }
 
 

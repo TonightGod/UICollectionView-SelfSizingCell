@@ -119,16 +119,12 @@ typedef NSMutableArray<NSMutableArray<NSNumber *> *> IndexPathHeightsBySection;
 // We just forward primary call, in crash report, top most method in stack maybe FD's,
 // but it's really not our bug, you should check whether your table view's data source and
 // displaying cells are not matched when reloading.
-static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (^callout)(void)) {
-    callout();
-}
-#define FDPrimaryCall(...) do {__FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(^{__VA_ARGS__});} while(0)
 
 @implementation UICollectionView(IndexPathHeightCacheInvalidation)
 
 
 - (void)cus_reloadDataWithoutInvalidateIndexPathHeightCache {
-    FDPrimaryCall([self cus_reloadData];);
+    [self cus_reloadData];
 }
 
 + (void)load {
@@ -160,7 +156,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             [heightsBySection removeAllObjects];
         }];
     }
-    FDPrimaryCall([self cus_reloadData];);
+    [self cus_reloadData];
 }
 -(void)cus_insertSections:(NSIndexSet *)sections
 {
@@ -174,7 +170,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
 
         }];
     }
-    FDPrimaryCall([self cus_insertSections:sections];);
+    [self cus_insertSections:sections];
 
 }
 -(void)cus_deleteSections:(NSIndexSet *)sections
@@ -187,7 +183,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             }];
         }];
     }
-    FDPrimaryCall([self cus_deleteSections:sections];);
+    [self cus_deleteSections:sections];
 }
 -(void)cus_reloadSections:(NSIndexSet *)sections
 {
@@ -200,7 +196,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
 
         }];
     }
-    FDPrimaryCall([self cus_reloadSections:sections];);
+    [self cus_reloadSections:sections];
 }
 -(void)cus_moveSection:(NSInteger)section toSection:(NSInteger)newSection
 {
@@ -211,7 +207,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             [heightsBySection exchangeObjectAtIndex:section withObjectAtIndex:newSection];
         }];
     }
-    FDPrimaryCall([self cus_moveSection:section toSection:newSection];);
+    [self cus_moveSection:section toSection:newSection];
 
 }
 -(void)cus_insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
@@ -224,7 +220,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             }];
         }];
     }
-    FDPrimaryCall([self cus_insertItemsAtIndexPaths:indexPaths];);
+    [self cus_insertItemsAtIndexPaths:indexPaths];
 }
 -(void)cus_deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
 {
@@ -247,7 +243,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             }];
         }];
     }
-    FDPrimaryCall([self cus_deleteItemsAtIndexPaths:indexPaths];);
+    [self cus_deleteItemsAtIndexPaths:indexPaths];
 }
 -(void)cus_reloadItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths
 {
@@ -259,7 +255,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             }];
         }];
     }
-    FDPrimaryCall([self cus_reloadItemsAtIndexPaths:indexPaths];);
+    [self cus_reloadItemsAtIndexPaths:indexPaths];
 }
 -(void)cus_moveItemAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
 {
@@ -274,7 +270,7 @@ static void __FD_TEMPLATE_LAYOUT_CELL_PRIMARY_CALL_IF_CRASH_NOT_OUR_BUG__(void (
             destinationRows[newIndexPath.row] = sourceValue;
         }];
     }
-    FDPrimaryCall([self cus_moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];);
+    [self cus_moveItemAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
 
 @end

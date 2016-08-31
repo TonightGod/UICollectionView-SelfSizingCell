@@ -22,6 +22,7 @@
     self.contentView.bounds=[UIScreen mainScreen].bounds;
 }
 
+
 -(void)setModel:(CellModel *)model
 {
     _model=model;
