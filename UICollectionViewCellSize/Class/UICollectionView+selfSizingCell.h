@@ -15,6 +15,7 @@
 @interface UICollectionView (selfSizingCell)
 
 - (CGFloat)heightForCellWithIdentifier:(NSString *)identifier cacheByIndexPath:(NSIndexPath *)indexPath  andWidth:(CGFloat)width configuration:(void (^)(id cell))configuration;
+- (CGSize)sizeForCellWithIdentifier:(NSString*)identifier configuration:(void(^)(id cell))configuration;
 
 @end
 

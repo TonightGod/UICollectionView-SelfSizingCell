@@ -24,6 +24,43 @@
 }
 
 
+- (CGSize)sizeForCellWithIdentifier:(NSString*)identifier configuration:(void(^)(id cell))configuration
+{
+    if (!identifier) {
+        return CGSizeZero;
+    }
+    UICollectionViewCell *tempCell=[self templateCellForReuseIdentifier:identifier forIndexPath:nil];
+    if(configuration)
+    {
+        configuration(tempCell);
+    }
+    return [self systemFittingSizeForConfiguratedCell:tempCell];
+}
+
+-(CGSize)systemFittingSizeForConfiguratedCell:(UICollectionViewCell*)cell
+{
+    CGSize fittingHeight = CGSizeZero;
+    fittingHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    if (fittingHeight.width==0&&fittingHeight.height==0 ) {
+#if DEBUG
+        if (cell.contentView.constraints.count > 0) {
+            if (!objc_getAssociatedObject(self, _cmd)) {
+                NSLog(@"Warning once only: Cannot get a proper cell height (now 0) from '- systemFittingSize:'(AutoLayout). You should check how constraints are built in cell, making it into 'self-sizing' cell.");
+                objc_setAssociatedObject(self, _cmd, @YES, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+            }
+        }
+#endif
+        fittingHeight = [cell sizeThatFits:CGSizeMake(0, 0)];
+        
+    }
+    
+    if (fittingHeight.width==0&&fittingHeight.height==0 ) {
+        fittingHeight = CGSizeZero;
+    }
+    
+    return fittingHeight;
+}
+
 -(CGFloat)systemFittingHeightForConfiguratedCell:(UICollectionViewCell*)cell
 {
     CGFloat contentViewWidth = self.contentWidth;

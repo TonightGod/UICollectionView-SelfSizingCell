@@ -28,7 +28,7 @@
     {
      
         UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc]init];
-        layout.minimumInteritemSpacing=0;
+        layout.minimumInteritemSpacing=20;
         layout.scrollDirection=UICollectionViewScrollDirectionVertical;
         _collectionview=[[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
         _collectionview.backgroundColor=[UIColor whiteColor];
@@ -107,11 +107,11 @@ return _dataArray;
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    CGFloat height=[collectionView heightForCellWithIdentifier:kCollectionViewCell cacheByIndexPath:indexPath andWidth:[UIScreen mainScreen].bounds.size.width configuration:^(CollectionViewCell *cell) {
+    CGFloat height=[collectionView heightForCellWithIdentifier:kCollectionViewCell cacheByIndexPath:indexPath andWidth:[UIScreen mainScreen].bounds.size.width/3 configuration:^(CollectionViewCell *cell) {
         cell.model=self.dataArray[indexPath.item];
     }];
 
-    return CGSizeMake([UIScreen mainScreen].bounds.size.width, height);
+    return CGSizeMake([UIScreen mainScreen].bounds.size.width/3, height);
 }
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
