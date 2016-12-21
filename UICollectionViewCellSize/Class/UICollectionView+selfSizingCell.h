@@ -13,14 +13,16 @@
 
 
 @interface UICollectionView (selfSizingCell)
-
+/**return cell height*/
 - (CGFloat)heightForCellWithIdentifier:(NSString *)identifier cacheByIndexPath:(NSIndexPath *)indexPath  andWidth:(CGFloat)width configuration:(void (^)(id cell))configuration;
+/**return cell size*/
 - (CGSize)sizeForCellWithIdentifier:(NSString*)identifier configuration:(void(^)(id cell))configuration;
 
 @end
 
 @interface UICollectionView(selfSizeingHeaderFooterView)
+/**return CollectionViewFooter height*/
 -(CGFloat)heigthForFooterWithIdentifier:(NSString*)identifier configuration:(void(^)(id footer))configuration;
-
+/**return CollectionViewHeader height*/
 -(CGFloat)heigthForHeaderWithIdentifier:(NSString*)identifier configuration:(void(^)(id header))configuration;
 @end
